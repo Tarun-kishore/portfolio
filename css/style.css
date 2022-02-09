@@ -24,6 +24,8 @@
 
 li{
     list-style:none;
+    margin:1rem;
+    padding:0;
 }
 
 a{
@@ -35,7 +37,7 @@ header{
     display: flex;
     flex-direction:row;
     justify-content: space-between;
-    height: 8vw;
+    min-height: 8vw;
 }
 
 .navToggle{
@@ -103,7 +105,6 @@ header{
 }
 
 .banner{
-    border:2px solid red;
     background: var(--background);
     color:var(--text-secondary);
     padding:auto;
@@ -126,7 +127,8 @@ header{
 }
 
 .skill-desc a,.project-links a{
-    margin:2rem;
+    margin:auto;
+    padding: 2rem 0;
     text-decoration:underline;
     color:green;
 }
@@ -231,6 +233,7 @@ footer{
     }
 
     .skill-grid-element:nth-child(2){
+        border-bottom-left-radius:1rem;
         border-top-left-radius:0px;
         border-top-right-radius:0px;
     }
@@ -250,6 +253,7 @@ footer{
 
     .navToggle{
         margin-top:3vw;
+        margin-right:4vw;
         display: block;
         background:none;
         width:8vw;
