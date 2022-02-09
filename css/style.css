@@ -1,5 +1,5 @@
 :root{
-    --background:#a0c187;;
+    --background:#7510F7;
     --foreground:white;
     --text-primary: black;
     --text-secondary: white;
@@ -70,7 +70,7 @@ header{
 #Home{
     display:flex;
     flex-direction:column;
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 .image img{
@@ -125,6 +125,16 @@ header{
     font-weight:var(--heading-weight);
 }
 
+.skill-desc a,.project-links a{
+    margin:2rem;
+    text-decoration:underline;
+    color:green;
+}
+
+.project-desc,skill-desc{
+    min-height:20vh;
+}
+
 .skill-grid-container,.project-grid-container{
     max-width:80vw;
     margin:auto;
@@ -138,6 +148,7 @@ header{
 .skill-grid-element,.project-grid-element{
     padding:2rem;
 
+    flex:1;
     border-radius:1rem;
     border: 1px solid var(--background);
 
@@ -193,9 +204,13 @@ footer{
 }
 
 .linkedIn{
-    width:4vw;
+    min-width:5vw;
+    max-width:10vw;
+    min-height:5vh;
+    max-height:10vh;
     fill:var(--text-secondary);
     border-radius:3vw;
+    margin:1rem;
 }
 
 .linkedIn:hover{
@@ -209,7 +224,32 @@ footer{
         flex-direction:column;
     }
 
+
+    .skill-grid-element:nth-child(1){
+        border-bottom-left-radius:0px;
+        border-bottom-right-radius:0px;
+    }
+
+    .skill-grid-element:nth-child(2){
+        border-top-left-radius:0px;
+        border-top-right-radius:0px;
+    }
+    .project-grid-element:nth-child(1){
+        border-bottom-left-radius:0px;
+        border-bottom-right-radius:0px;
+    }
+
+    .project-grid-element:nth-child(2){
+        border-radius:0px;
+    }
+    .project-grid-element:nth-child(3){
+        border-bottom-left-radius:1rem;
+        border-top-left-radius:0px;
+        border-top-right-radius:0px;
+    }
+
     .navToggle{
+        margin-top:3vw;
         display: block;
         background:none;
         width:8vw;
@@ -227,6 +267,69 @@ footer{
         position:relative;
     }
 
+    /*animations*/
+    @keyframes left {
+        0%{
+
+            top:-1.7vw;
+        }
+        50%{
+            top:-0.8vw;
+        }
+        100%{
+            bottom:0vw;
+            transform: rotate(50deg);
+        }
+
+    }
+
+    @keyframes right {
+        0%{
+
+            bottom:-1.7vw;
+        }
+
+        50%{
+            bottom:-0.8vw;
+        }
+        100%{
+            top:0vw;
+            transform: rotate(-50deg);
+        }
+
+    }
+
+
+    @keyframes left2 {
+        0%{
+
+            bottom:0vw;
+            transform: rotate(50deg);
+        }
+        50%{
+            top:-0.8vw;
+        }
+        100%{
+            top:-1.7vw;
+        }
+
+    }
+
+    @keyframes right2 {
+        0%{
+
+            top:0vw;
+            transform: rotate(-50deg);
+        }
+
+        50%{
+            bottom:-0.8vw;
+        }
+        100%{
+            bottom:-1.7vw;
+        }
+
+    }
     .hamburger::before,.hamburger::after,.hamburger{
         width:5vw;
         height:0.7vw;
@@ -237,18 +340,27 @@ footer{
     .hamburger::before{
         content:'';
         position: absolute;
-        top:-1.7vw;
+        animation: right2 0.5s;
+        animation-fill-mode:forwards;
     }
 
     .hamburger::after{
         content:'';
         bottom:-1.7vw;
         position: absolute;
+        animation: left2 0.5s;
+        animation-fill-mode:forwards;
     }
 
+
+
     .hamburger-toggled {
-        display: hidden;
+        background:none;
+        width:5vw;
+        height:0.7vw;
+        display: block;
         position: relative;
+        margin:auto;
     }
 
     .hamburger-toggled::before,.hamburger-toggled::after{
@@ -257,25 +369,45 @@ footer{
         display: block;
         background: var(--background);
     }
-    
+
     .hamburger-toggled::before{
         content:'';
         position: absolute;
-        transform: rotate(-50deg);
+        display: block;
+        animation: right 0.5s;
+        animation-fill-mode:forwards;
     }
+
 
     .hamburger-toggled::after{
         content:'';
         position: absolute;
-        transform: rotate(50deg);
+        display: block;
+        animation: left 0.5s;
+        animation-fill-mode:forwards;
     }
+    @keyframes show {
+        from{
+            transform: translateY(-1rem);
+        }
+        to{
+            transform: translateY(0rem);
+        }
+    }
+
     .list{
         display: none;
+        animation-name: show ;
+        animation-duration: 1s;
+        animation-direction:reverse;
     }
 
     .list-toggled{
+        animation-name: show ;
+        animation-duration: 1s;
         display: flex;
         flex-direction: column;
+        margin-top: 1rem;
     }
-    
+
 }
