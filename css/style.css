@@ -1,14 +1,25 @@
 :root{
-    --background:blue;
+    --background:#a0c187;;
+    --foreground:white;
     --text-primary: black;
     --text-secondary: white;
     --heading-size:2.3rem;
     --sub-heading-size:1.3rem;
+    --heading-weight: bolder;
+    --sub-heading-weight: 200;
 }
+
 
 *{
     margin:0px;
     padding: 0px;
+    text-align:center;
+}
+
+.icon{
+    max-width: 8vw;
+    max-height 5vh;
+    fill: var(--background);
 }
 
 li{
@@ -43,7 +54,6 @@ header{
 }
 
 .list-item a{
-    /*border: 2px solid var(--background);*/
     border-radius:4vw;
     color: var(--background);
     display: flex;
@@ -82,18 +92,190 @@ header{
 .intro-heading{
     font-size:var(--heading-size);
     color:var(--text-primary);
-    font-weight: bolder;
+    font-weight: var(--heading-weight);
     margin-bottom:3vh;
 }
 
 .intro-subtitle{
     font-size:var(--sub-heading-size);
     color:var(--text-primary);
-    font-weight:200;
+    font-weight:var(--sub-heading-weight);
 }
 
 .banner{
     border:2px solid red;
     background: var(--background);
     color:var(--text-secondary);
+    padding:auto;
+    padding-top:9rem;
+    padding-bottom:20rem;
+}
+
+.desc{
+    max-width:80vw;
+    margin:1.5rem auto;
+    font-size:var(--sub-heading-size);
+    font-weight: var(--sub-heading-weight);
+}
+
+.title{
+    max-width:60vw;
+    margin:auto;
+    font-size:var(--heading-size);
+    font-weight:var(--heading-weight);
+}
+
+.skill-grid-container,.project-grid-container{
+    max-width:80vw;
+    margin:auto;
+    margin-top: -14rem;
+    margin-bottom:10rem;
+    background: var(--foreground);
+    border-radius:1rem;
+    display: flex;
+    flex-direction:row;
+}
+.skill-grid-element,.project-grid-element{
+    padding:2rem;
+
+    border-radius:1rem;
+    border: 1px solid var(--background);
+
+}
+.skill-grid-element:nth-child(1){
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+.skill-grid-element:nth-child(2){
+    border-top-left-radius:0px;
+    border-bottom-left-radius:0px;
+}
+.project-grid-element:nth-child(1){
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+.project-grid-element:nth-child(2){
+    border-radius:0px;
+}
+.project-grid-element:nth-child(3){
+    border-top-left-radius:0px;
+    border-bottom-left-radius:0px;
+}
+
+
+.skill-grid-element > *, .project-grid-element>*{
+    margin:auto;
+    margin-top:1rem;
+}
+
+.banner-title{
+    font-weight: var(--heading-weight);
+    font-size:1.9rem;
+}
+
+.banner-subtitle{
+    font-weight: 600;
+    font-size:var(--sub-heading-size);
+    color:var(--background);
+}
+
+.banner-desc{
+    font-weight:var(--sub-heading-weight);
+    font-size:var(--sub-heading-size);
+}
+
+footer{
+    padding:2rem;
+    background: var(--background);
+    color:var(--text-secondary);
+}
+
+.linkedIn{
+    width:4vw;
+    fill:var(--text-secondary);
+    border-radius:3vw;
+}
+
+.linkedIn:hover{
+    fill:var(--background);
+    background:var(--foreground);
+}
+
+@media only screen and (max-width: 920px) {
+
+    .skill-grid-container, .project-grid-container{
+        flex-direction:column;
+    }
+
+    .navToggle{
+        display: block;
+        background:none;
+        width:8vw;
+        height: 8vw;
+        border-radius:4rem;
+        border:none;
+    }
+
+    .navToggle:hover{
+        cursor:pointer;
+    }
+
+    .hamburger{
+        margin:1vw auto ;
+        position:relative;
+    }
+
+    .hamburger::before,.hamburger::after,.hamburger{
+        width:5vw;
+        height:0.7vw;
+        display: block;
+        background: var(--background);
+    }
+
+    .hamburger::before{
+        content:'';
+        position: absolute;
+        top:-1.7vw;
+    }
+
+    .hamburger::after{
+        content:'';
+        bottom:-1.7vw;
+        position: absolute;
+    }
+
+    .hamburger-toggled {
+        display: hidden;
+        position: relative;
+    }
+
+    .hamburger-toggled::before,.hamburger-toggled::after{
+        width:5vw;
+        height:0.7vw;
+        display: block;
+        background: var(--background);
+    }
+    
+    .hamburger-toggled::before{
+        content:'';
+        position: absolute;
+        transform: rotate(-50deg);
+    }
+
+    .hamburger-toggled::after{
+        content:'';
+        position: absolute;
+        transform: rotate(50deg);
+    }
+    .list{
+        display: none;
+    }
+
+    .list-toggled{
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
